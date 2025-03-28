@@ -4,16 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>English Janala</title>
+    <script
+      src="https://kit.fontawesome.com/4639babd64.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .bangla {
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+      .bangla-bold {
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+    </style>
   </head>
   <body>
     <header>
-        <h1>Hellloooo</h1>
+      <nav class="px-[5%] navbar bg-base-100 shadow-md bg-zinc-100 justify-between py-6">
+        <div class="flex items-center">
+          <p class="text-xl font-semibold">English</p>
+          <img src="./assets/logo.png" alt="" />
+          <p class="bangla text-xl">জানালা</p>
+        </div>
+        <ul class="menu menu-horizontal p-0 gap-4">
+          <button class="btn btn-outline btn-primary">
+            <i class="fa-solid fa-circle-question"></i>
+            FAQ
+          </button>
+          <button class="btn btn-outline btn-primary">
+            <i class="fa-solid fa-book-open"></i>
+            Learn
+          </button>
+          <button class="btn btn-outline btn-primary">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Logout
+          </button>
+        </ul>
+      </nav>
     </header>
     <main></main>
     <footer></footer>
