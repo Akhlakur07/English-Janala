@@ -20,27 +20,33 @@
       href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       .bangla {
         font-family: "Hind Siliguri", sans-serif;
-        font-weight: 500;
         font-style: normal;
       }
-      .bangla-bold {
-        font-family: "Hind Siliguri", sans-serif;
-        font-weight: 700;
+      .poppins {
+        font-family: "Poppins", sans-serif;
         font-style: normal;
       }
-
     </style>
   </head>
-  <body>
+
+  <body class="poppins">
     <header>
-      <nav class="px-[5%] navbar bg-base-100 shadow-md bg-zinc-100 justify-between py-6">
+      <nav
+        class="px-[5%] navbar bg-base-100 shadow-sm bg-zinc-100 justify-between py-6"
+      >
         <div class="flex items-center">
           <p class="text-xl font-semibold">English</p>
           <img src="./assets/logo.png" alt="" />
-          <p class="bangla text-xl">জানালা</p>
+          <p class="bangla text-xl font-medium">জানালা</p>
         </div>
         <ul class="menu menu-horizontal p-0 gap-4">
           <button class="btn btn-outline btn-primary">
@@ -58,7 +64,43 @@
         </ul>
       </nav>
     </header>
-    <main></main>
+
+    <main>
+      <section class="flex justify-between items-center px-[5%] py-5">
+        <div class="w-[42%]">
+          <h1 class="text-5xl font-bold">
+            <span class="text-[#00BCFF]">English</span> is Easy!!
+          </h1>
+          <p class="bangla font-medium text-2xl opacity-80 leading-[39px] py-7">
+            আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+            আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে
+            অন্য একটি Level এ
+          </p>
+
+          <div>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              class="input input-bordered w-full max-w-md rounded-lg px-4 py-2 text-lg"
+            />
+          </div>
+          <div class="py-4">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              class="input w-full max-w-md rounded-lg px-4 py-2 text-lg"
+            />
+          </div>
+
+          <button class="btn btn-primary rounded-lg">Get Started</button>
+        </div>
+        <img src="./assets/hero-student.png" alt="" />
+      </section>
+    </main>
     <footer></footer>
 
     <script src="./script/index.js"></script>
