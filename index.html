@@ -26,6 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
     <style>
       .bangla {
         font-family: "Hind Siliguri", sans-serif;
@@ -35,13 +36,18 @@
         font-family: "Poppins", sans-serif;
         font-style: normal;
       }
+
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
+
   </head>
 
   <body class="poppins">
-    <header>
+    <header class="sticky top-0 z-50">
       <nav
-        class="px-[5%] navbar bg-base-100 shadow-sm bg-zinc-100 justify-between py-6"
+        class="px-[4%] navbar shadow-md backdrop-blur-lg justify-between py-6"
       >
         <div class="flex items-center">
           <p class="text-xl font-semibold">English</p>
@@ -49,18 +55,24 @@
           <p class="bangla text-xl font-medium">জানালা</p>
         </div>
         <ul class="menu menu-horizontal p-0 gap-4">
-          <button class="btn btn-outline btn-primary">
-            <i class="fa-solid fa-circle-question"></i>
-            FAQ
-          </button>
-          <button class="btn btn-outline btn-primary">
-            <i class="fa-solid fa-book-open"></i>
-            Learn
-          </button>
-          <button class="btn btn-outline btn-primary">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            Logout
-          </button>
+          <a href="#faq-section">
+            <button class="btn btn-outline btn-primary">
+              <i class="fa-solid fa-circle-question"></i>
+              FAQ
+            </button>
+          </a>
+          <a href="#learn-section">
+            <button class="btn btn-outline btn-primary">
+              <i class="fa-solid fa-book-open"></i>
+              Learn
+            </button>
+          </a>
+          <a href="">
+            <button class="btn btn-outline btn-primary">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Logout
+            </button>
+          </a>
         </ul>
       </nav>
     </header>
@@ -101,7 +113,7 @@
         <img src="./assets/hero-student.png" alt="" />
       </section>
 
-      <section>
+      <section id="learn-section">
         <h2 class="text-4xl font-bold text-center pt-48 pb-9">
           <span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
         </h2>
@@ -128,37 +140,27 @@
 
       <section id="popup-container"></section>
 
-      <section>
-        <h2 class="text-4xl font-bold text-center mt-56 mb-20">
+      <section id="faq-section">
+        <h2 class="text-4xl font-bold text-center pt-56 mb-20">
           <span class="text-[#00BCFF]">Frequently</span> Asked Questions
         </h2>
 
-        <div class="w-11/12 mx-auto grid gap-5">
+        <div class="w-11/12 mx-auto grid gap-5 mb-20">
           <div
             class="collapse collapse-plus bg-base-100 border border-base-300 bg-zinc-100"
           >
             <input type="radio" name="my-accordion-3" checked="checked" />
             <div class="collapse-title text-base font-medium">
-              1. How can I start learning English on this website?
+              1. What is the difference between var, let, and const?
             </div>
-            <div class="collapse-content text-base font-normal text-[#62748E] leading-7">
-              You can start by exploring our beginner lessons, interactive
-              exercises, and quizzes. We also offer structured courses to guide
-              you step by step.
-            </div>
-          </div>
-          <div
-            class="collapse collapse-plus bg-base-100 border border-base-300 bg-zinc-100"
-          >
-            <input type="radio" name="my-accordion-3" />
-            <div class="collapse-title text-base font-medium">
-              2. Is this website free to use?
-            </div>
-            <div class="collapse-content text-base font-normal text-[#62748E] leading-7">
-              Yes! We offer free access to most of our lessons, exercises, and
-              basic quizzes. For advanced features (like personalized coaching
-              or certification), we have a premium plan with additional
-              benefits.
+            <div
+              class="collapse-content text-base font-normal text-[#62748E] leading-7"
+            >
+              var: Function-scoped, can be redeclared/updated
+              (avoid—outdated).<br />
+              let: Block-scoped, can be updated but not redeclared.<br />
+              const: Block-scoped, cannot be updated or redeclared (use by
+              default).
             </div>
           </div>
           <div
@@ -166,21 +168,16 @@
           >
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title text-base font-medium">
-              3. Do I need to create an account?
+              2. What is the difference between map(), forEach(), and filter()?
             </div>
-            <div class="collapse-content text-base font-normal text-[#62748E] leading-7">
-              You can access some lessons without an account, but we recommend signing up (it’s free!) to track your progress, save your favorite lessons, and unlock personalized recommendations.
-            </div>
-          </div>
-          <div
-            class="collapse collapse-plus bg-base-100 border border-base-300 bg-zinc-100"
-          >
-            <input type="radio" name="my-accordion-3" />
-            <div class="collapse-title text-base font-medium">
-              4. How can I build my English vocabulary?
-            </div>
-            <div class="collapse-content text-base font-normal text-[#62748E] leading-7">
-              Practice regularly with our speaking exercises, pronunciation guides, and conversation simulations. We also recommend joining our live speaking clubs (for premium users) or recording yourself to compare with native speakers.
+            <div
+              class="collapse-content text-base font-normal text-[#62748E] leading-7"
+            >
+              map(): creates a new array by transforming each element.<br />
+              forEach(): executes a function for each item without returning
+              anything.<br />
+              filter(): returns a new array with only elements that pass a
+              condition.
             </div>
           </div>
           <div
@@ -188,17 +185,78 @@
           >
             <input type="radio" name="my-accordion-3" />
             <div class="collapse-title text-base font-medium">
-              5. Do you offer certificates for completed courses?
+              3. Explain arrow functions and how they are different from regular
+              functions?
             </div>
-            <div class="collapse-content text-base font-normal text-[#62748E] leading-7">
-              Yes! Our premium courses include certificates of completion, which you can share on LinkedIn or your resume.
+            <div
+              class="collapse-content text-base font-normal text-[#62748E] leading-7"
+            >
+              Arrow functions (=>) are shorter and inherit this from their
+              surroundings, while regular functions (function) have their own
+              this and support constructors/arguments. Use arrows for
+              simplicity, regular functions when you need dynamic this.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300 bg-zinc-100"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-base font-medium">
+              4. How JavaScript Promises work?
+            </div>
+            <div
+              class="collapse-content text-base font-normal text-[#62748E] leading-7"
+            >
+              JavaScript Promises handle async tasks by tracking success
+              (.then()) or failure (.catch()). They start as pending, then
+              resolve to fulfilled (success) or rejected (error)—cleaning up
+              callback chaos.
+            </div>
+          </div>
+          <div
+            class="collapse collapse-plus bg-base-100 border border-base-300 bg-zinc-100"
+          >
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-base font-medium">
+              5. How closures work in JavaScript?
+            </div>
+            <div
+              class="collapse-content text-base font-normal text-[#62748E] leading-7"
+            >
+              Closures in JavaScript allow a function to remember and access its
+              outer scope’s variables even after that outer function has
+              finished executing. They "close over" (capture) the environment
+              where they were created.
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer></footer>
+    <footer
+      class="mt-[200px] flex justify-between items-center px-[4%] py-[100px] border-t-3 border-gray-200"
+    >
+      <div>
+        <div class="flex items-center mb-[21px]">
+          <p class="text-xl font-semibold">English</p>
+          <img src="./assets/logo.png" alt="" />
+          <p class="bangla text-xl font-medium">জানালা</p>
+        </div>
+        <p class="bangla text-xl font-medium mb-2">ইংরেজি শিখুন সহজে</p>
+        <p class="text-base font-normal">
+          Providing ED-Tech Applications since 2025
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold opacity-60">FOLLOW US</p>
+        <div class="flex gap-4 mt-[15px]">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-github"></i>
+        </div>
+      </div>
+    </footer>
 
     <script src="./script/index.js"></script>
   </body>
