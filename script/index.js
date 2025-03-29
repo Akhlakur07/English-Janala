@@ -23,6 +23,7 @@ function displayLessons(lessons) {
 let activeCheck = "";
 
 function loadWords(id) {
+  showLoader()
   url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -54,15 +55,20 @@ function displayWords(words) {
 
           </div>
         `;
+    hideLoader()
     return;
   }
   for (let i of words) {
     const wordDiv = document.createElement("div");
+    let meaning = i.meaning
+    if (i.meaning===null){
+      meaning = "অর্থ নেই";
+    }
     wordDiv.innerHTML = `
           <div class="card bg-base-100 h-[420px] shadow-md p-14">
             <p class="text-center text-[32px] font-bold mb-6">${i.word}</p>
             <p class="text-center text-xl font-medium mb-6">Meaning /Pronounciation</p>
-            <p class="text-center bangla text-[32px] font-semibold opacity-80">"${i.meaning} / ${i.pronunciation}"</p>
+            <p class="text-center bangla text-[32px] font-semibold opacity-80">"${meaning} / ${i.pronunciation}"</p>
             <div class="h-full flex items-end">
                 <div class="flex justify-between bottom-14 w-full">
                     <div id="word-${i.id}" onclick="loadDetails(${i.id})" class="bg-zinc-100 size-14 rounded-xl flex justify-center items-center">
@@ -78,6 +84,7 @@ function displayWords(words) {
         `;
 
     wordContainer.appendChild(wordDiv);
+    hideLoader()
   }
 }
 
@@ -94,6 +101,10 @@ function displayDetails(data) {
   synonyms = data.synonyms;
   console.log(synonyms);
   const details = document.createElement("div");
+  let meaning = data.meaning
+    if (data.meaning===null){
+      meaning = "অর্থ পাওয়া যায়নি";
+    }
   details.innerHTML = `
         <div
           class="fixed inset-0 bg-black/20 flex justify-center items-center"
@@ -108,7 +119,7 @@ function displayDetails(data) {
               Meaning
             </p>
             <p class="bangla text-2xl font-medium opacity-80 mb-8">${
-              data.meaning
+              meaning
             }</p>
 
             <p class="text-2xl font-semibold mb-2">
@@ -155,13 +166,25 @@ function btnLogin() {
   if (password.value != "123456") {
     alert("Incorrect Password")
   }
-  else {
+  if (password.value == "123456" && name.value != "") {
+    console.log(77)
     hero.classList.add("hidden")
     navbar.classList.remove("hidden")
     learnSection.classList.remove("hidden")
     faqSection.classList.remove("hidden")
+    success()
   }
 }
+
+function success(){
+  console.log("success")
+  Swal.fire({
+    title: "অভিনন্দন",
+    text: "চলুন আজকে নতুন কিছু শেখা যাক",
+    icon: "success"
+  });
+}
+
 
 function loadWordSpeak(id){
     console.log(id)
@@ -177,5 +200,15 @@ function pronounceWord(word) {
     utterance.lang = 'en-EN';
     window.speechSynthesis.speak(utterance);
   }
+
+function showLoader() {
+  document.getElementById("loader").classList.remove("hidden");
+  document.getElementById("word-container").classList.add("hidden");
+}
+
+function hideLoader() {
+  document.getElementById("loader").classList.add("hidden");
+  document.getElementById("word-container").classList.remove("hidden");
+}
 
 loadLessons();

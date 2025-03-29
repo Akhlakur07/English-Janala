@@ -27,6 +27,8 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
       .bangla {
         font-family: "Hind Siliguri", sans-serif;
@@ -46,7 +48,7 @@
   <body class="poppins">
     <header id="navbar" class="hidden sticky top-0 z-50">
       <nav
-        class="px-[4%] navbar shadow-md backdrop-blur-lg justify-between py-6"
+        class="px-[4%] navbar shadow-md backdrop-blur-lg flex flex-col gap-4 md:flex-row justify-between py-6"
       >
         <div class="flex items-center">
           <p class="text-xl font-semibold">English</p>
@@ -77,7 +79,7 @@
     </header>
 
     <main>
-      <section id="hero" class="flex justify-between items-center px-[5%] py-5">
+      <section id="hero" class="flex flex-col lg:flex-row justify-between items-center px-[5%] py-5">
         <div class="w-[42%]">
           <h1 class="text-5xl font-bold">
             <span class="text-[#00BCFF]">English</span> is Easy!!
@@ -88,8 +90,7 @@
             অন্য একটি Level এ
           </p>
 
-          <!-- <form action="" method="get"> -->
-          <div>
+          <form>
             <input
               type="text"
               id="name"
@@ -112,10 +113,10 @@
               id="login"
               onclick="btnLogin()"
               class="btn btn-primary rounded-lg"
-              type="submit"
+              type="button"
               value="Get Started"
             />
-          </div>
+          </form>
         </div>
         <img src="./assets/hero-student.png" alt="" />
       </section>
@@ -127,12 +128,16 @@
 
         <div
           id="lesson-container"
-          class="flex justify-center gap-4 mb-10"
+          class="grid grid-cols-3 md:grid-cols-5 place-items-center lg:flex lg:justify-center gap-4 mb-10"
         ></div>
+        
+        <div id="loader" class="hidden text-center py-10">
+          <span class="loading loading-dots loading-xl"></span>
+        </div>
 
         <div
           id="word-container"
-          class="w-11/12 mx-auto grid grid-cols-3 gap-7 bg-zinc-100 rounded-xl p-7"
+          class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 bg-zinc-100 rounded-xl p-7"
         >
           <div class="grid place-items-center col-span-3 py-16 gap-5">
             <p class="bangla text-lg font-normal text-center opacity-80">
