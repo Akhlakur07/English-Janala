@@ -20,11 +20,21 @@ function displayLessons(lessons) {
     }
 }
 
+let activeCheck = '';
+
 function loadWords(id) {
     url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(res => res.json())
-        .then(data => displayWords(data.data))
+        .then(data => {
+            const active = document.getElementById(`btn-${id}`);
+            if (activeCheck!=='') {
+                activeCheck.classList.add('btn-outline');
+            }
+            active.classList.remove('btn-outline');
+            activeCheck = active;
+            displayWords(data.data)
+        })
 }
 
 function displayWords(words) {
@@ -49,7 +59,7 @@ function displayWords(words) {
     for (let i of words) {
         const wordDiv = document.createElement('div');
         wordDiv.innerHTML = `
-          <div class="card bg-base-100 h-[420px] shadow-sm p-14">
+          <div class="card bg-base-100 h-[420px] shadow-md p-14">
             <p class="text-center text-[32px] font-bold mb-6">${i.word}</p>
             <p class="text-center text-xl font-medium mb-6">Meaning /Pronounciation</p>
             <p class="text-center bangla text-[32px] font-semibold opacity-80">"${i.meaning} / ${i.pronunciation}"</p>
@@ -90,7 +100,7 @@ function displayDetails(data) {
         <div
           class="fixed inset-0 bg-black/20 flex justify-center items-center"
         >
-          <div class="card bg-base-100 shadow-sm p-12 w-[735px]">
+          <div class="card bg-base-100 shadow-xl p-12 w-[735px]">
             <p class="text-4xl font-semibold mb-8">${data.word} (<span><i class="fa-solid fa-microphone"></i></span>:${data.pronunciation})</p>
             <p class="text-xl font-semibold mb-[10px]">
               Meaning
