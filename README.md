@@ -1,2 +1,2 @@
 # English-Janala
-english-janala-ar.netlify.app
+https://english-janala-ar.netlify.app/
