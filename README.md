@@ -1,6 +1,6 @@
 # English-Janala - Interactive English Learning Platform
 
-[Live Demo](https://english-janala-ar.netlify.app)
+Visit the live site: [English-Janala](https://english-janala-ar.netlify.app)
 
 English-Janala is an interactive web application designed to help users learn English vocabulary through structured lessons and engaging features. The platform provides a user-friendly interface for learning new words, their meanings, pronunciations, and usage in sentences.
 
